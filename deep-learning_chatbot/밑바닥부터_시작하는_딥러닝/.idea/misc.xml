@@ -4,4 +4,7 @@
     <option name="sdkName" value="Python 3.10 (밑바닥부터_시작하는_딥러닝)" />
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.10 (밑바닥부터_시작하는_딥러닝)" project-jdk-type="Python SDK" />
+  <component name="PythonCompatibilityInspectionAdvertiser">
+    <option name="version" value="3" />
+  </component>
 </project>
