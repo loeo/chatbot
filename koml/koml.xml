@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<koml>
+
+  <case>
+    <pattern>너_j 이름_j 뭐야?</pattern>
+    <template>내 이름은 코엠엘챗봇이야!</template>
+  </case>
+
+  <case>
+  <pattern>살쪘어</pattern>
+  <template>누가 살쪄!</template>
+  </case>
+
+  <case>
+    <pattern>
+      <li>졸리다</li>
+      <li>잠온다</li>
+    </pattern>
+    <template>졸리면 자라</template>
+  </case>
+
+  <case>
+    <pattern>국힙 원탑은 *</pattern>
+    <template>원탑은 싸이 아님?</template>
+  </case>
+
+  <case>
+    <pattern>너_j 꿈_j 뭐_e</pattern>
+    <template>해적왕</template>
+  </case>
+
+  <case>
+  <!-- follow 안에는 패턴을 적어넣을 수 있어요 -->
+    <follow>*해적왕*</follow>
+    <pattern>왜_sf</pattern>
+    <template>샹크스랑 약속했거든</template>
+  </case>
+
+  <case id='good_singer'>
+    <pattern>너_j 노래 잘해_s</pattern>
+    <template>기가 막히지</template>
+  </case>
+
+  <case>
+    <follow cid='good_singer'/>
+    <pattern>
+      <li>*해봐*</li>
+      <li>*불러봐*</li>
+    </pattern>
+    <template>언더에선 안부름ㅎ</template>
+  </case>
+
+  <case>
+  <!-- 명사만 가져오기 -->
+    <pattern>내 이름은 <blank pos='N'/></pattern>
+    <template>안녕 <blank/>! 만나서 반가워ㅋㅋ</template>
+  </case>
+
+  <!-- idx 로 순서 배치 -->
+  <case>
+    <pattern>너_j <blank pos='N'/> 좋아 <blank pos='N'/> 좋아_sf</pattern>
+    <template>나는 <blank idx='2'/> 보다는 <blank idx='1'/> 좋은듯</template>
+  </case>
+
+<!-- key 로 가져오기 -->
+  <case>
+    <pattern>너_j <blank pos='N'/> 랑 <blank pos='N' key='target'/> 중 뭐_j 좋아_sf</pattern>
+    <template>나는 <blank key='target'/>! </template>
+  </case>
+
+  <case>
+    <pattern>내가 제일 좋아하는 음식은 <blank pos='N'/></pattern>
+    <template>너 <set key='favorite_food'><blank/></set> 좋아하는구나.. 기억할게!</template>
+  </case>
+
+  <case>
+    <pattern>* 제일 좋아하는 음식_j 뭔지 알아_sf</pattern>
+    <template>알지. <get key='favorite_food'/>잖아ㅋㅋ</template>
+  </case>
+
+  <!-- think -->
+  <case>
+    <pattern>내 취미는 <blank npos='J, EF'/></pattern>
+    <!-- think 안에 있는 부분이 노출되지 않음 -->
+    <template><think><set key='hobby'><blank/></set></think>안물안궁</template>
+  </case>
+
+  <case>
+    <pattern>내 취미_j 뭐*</pattern>
+    <template><get key='hobby'/>라매ㅋㅋ</template>
+  </case>
+
+  <case>
+    <pattern><blank pos="N"/>먹으러 갈래?</pattern>
+    <template>누가 <blank/>_eul 먹냐. 난 <blank/>_eun 별로ㅎ. </template>
+  </case>
+
+  <case>
+    <pattern>
+      <li>안녕</li>
+      <li>하이</li>
+    </pattern>
+    <template>
+      <random>
+        <ri>안녕~~~</ri>
+        <ri>반가워!</ri>
+        <ri>인사 잘한다</ri>
+      </random>
+    </template>
+  </case>
+
+  <case>
+    <pattern>로또</pattern>
+    <template>
+      <random>
+        <ri weight='3'>꽝</ri>
+        <ri weight='1'>당첨!</ri>
+      </random>
+    </template>
+  </case>
+
+  <case>
+  <!-- 형용사만 추출  -->
+    <pattern>오늘 날씨가 <blank pos='VA'/></pattern>
+    <template>
+      <switch>
+        <pivot><blank/></pivot>
+        <scase pivot='좋'>커플들 다 뒤져라</scase>
+        <scase pivot='나쁘'>놀러갈라 그랬는데 집에서 쉬어야겠네</scase>
+        <scase pivot='흐리'>이거 또 미세먼지 아냐?</scase>
+        <default>그렇네 날씨가 <blank/>네</default>
+      </switch>
+    </template>
+  </case>
+
+</koml>
